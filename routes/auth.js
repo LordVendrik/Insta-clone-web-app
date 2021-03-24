@@ -55,7 +55,7 @@ router.post("/signin",(req,res)=>{
     }
 
     User.findOne({Email:Email})
-    .then(savedUser=>{
+    .then((savedUser)=>{
         if(!savedUser){
             return res.status(422).json({error:"No User"});
         }
@@ -63,6 +63,7 @@ router.post("/signin",(req,res)=>{
         bcrypt.compare(Password,savedUser.Password)
         .then(ismatched=>{
             if(ismatched){
+                console.log("compared");
                 // res.json({message:"successfully Logged in"});
                 const token = jwt.sign({_id:savedUser._id},JWT_SECRET);
                 const {_id,Username,Email,followers,following,pic} = savedUser;
