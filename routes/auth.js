@@ -71,7 +71,7 @@ router.post("/signin",(req,res)=>{
                 res.status(422).json({error:"Wrong Username or Password"});
             }
         })
-        .catch(err=>{console.log(err);})
+        .catch(err=>{return res.json({error:err})})
     })
 });
 

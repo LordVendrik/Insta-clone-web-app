@@ -9,10 +9,10 @@ function Navbar() {
   const renderList = ()=>{
     if(state){
       return[
-        <li><Link to="/profile">profile</Link></li>,
-        <li><Link to="/create">CreatePost</Link></li>,
-        <li><Link to="/myfollowingpost">My following Post</Link></li>,
-        <li>
+        <li key="1" ><Link to="/profile">profile</Link></li>,
+        <li key="2"><Link to="/create">CreatePost</Link></li>,
+        <li key="3"><Link to="/myfollowingpost">My following Post</Link></li>,
+        <li key="4">
           <button className="btn waves-effect waves-light darken-1" 
           onClick={()=>{
             localStorage.clear()
@@ -25,8 +25,8 @@ function Navbar() {
       ]
     }else{
       return[
-        <li><Link to="/login">login</Link></li>,
-        <li><Link to="/signup">signup</Link></li>
+        <li key="6"><Link to="/login">login</Link></li>,
+        <li key="5"><Link to="/signup">signup</Link></li>
       ]
     }
   };
